@@ -42,7 +42,7 @@ function Routing() {
           path="/sign-in"
           element={<SignInPage/>}/>
         <Route
-          path="/sig n-up"
+          path="/sign-up"
           element={<SignUpPage/>}/>
         <Route
           path="/profile"
