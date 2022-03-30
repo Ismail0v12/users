@@ -1,0 +1,163 @@
+.header {
+  box-shadow: var(--shadow);
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 10px 0;
+  }
+
+  &__logo {
+    display: block;
+
+    width: 100px;
+    height: 76px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__button {
+    a {
+      display: inline-block;
+
+      &:first-child {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  &__user {
+    border-radius: 100%;
+  }
+
+  &__menu {
+    position: fixed;
+    z-index: 9;
+
+    visibility: hidden;
+
+    transition: var(--transition);
+
+    opacity: 0;
+    inset: 0;
+
+    &-overlay {
+      position: fixed;
+      z-index: -1;
+
+      background-color: rgb(0 0 0 / 50%);
+      inset: 0;
+    }
+
+    nav {
+      width: 420px;
+      height: 100vh;
+      padding: 30px;
+
+      transition: var(--transition);
+      transform: translateX(-100%);
+
+      background-color: var(--white);
+    }
+
+    &.active {
+      visibility: visible;
+
+      opacity: 1;
+
+      nav {
+        transform: translateX(0);
+      }
+    }
+
+    &-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      h4 {
+        margin-bottom: 0;
+
+        font-size: 34px;
+        font-weight: 500;
+        line-height: 46px;
+      }
+
+      span {
+        padding: 7px;
+      }
+    }
+
+    &-search {
+      position: relative;
+
+      margin-top: 30px;
+
+      button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+
+        padding: 0 15px;
+
+        color: white;
+        border: none;
+        border-radius: 0 7px 7px 0;
+        outline: none;
+        background-color: var(--black);
+      }
+    }
+
+    ul {
+      margin-top: 30px;
+      padding: 0;
+
+      list-style-type: none;
+
+      li {
+        a {
+          display: block;
+
+          padding: 7px 10px;
+
+          transition: var(--transition);
+
+          color: var(--black);
+          border-radius: 5px;
+          background-image: linear-gradient(120deg, var(--black), var(--black));
+          background-repeat: no-repeat;
+          background-position: 0 100%;
+          background-size: 100% 0;
+
+          font-size: 20px;
+
+          &:hover {
+            color: var(--white);
+            background-size: 100% 100%;
+          }
+
+          &.active {
+            color: var(--white);
+            background-size: 100% 100%;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+    &__menu {
+      nav {
+        width: 300px;
+        padding: 26px 8px;
+      }
+    }
+  }
+}
