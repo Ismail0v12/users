@@ -1,4 +1,4 @@
-import React, {Suspense, lazy, useContext, useMemo} from 'react';
+import React, {Suspense, lazy, useContext} from 'react';
 import {Routes, Route} from "react-router";
 import {Navigate} from "react-router";
 import {Spinner} from "../spinner";
@@ -17,9 +17,6 @@ const SignUpPage = lazy(() => import("../../pages/sign-up"));
 
 function Routing() {
   const {isAuthenticated} = useContext(AuthenticationContext);
-  const isRegistered = useMemo(() => {
-    return isAuthenticated;
-  }, [isAuthenticated]);
   return (
     <Suspense fallback={<Spinner/>}>
       <Routes>
@@ -49,7 +46,7 @@ function Routing() {
           element={<SignUpPage/>}/>
         <Route
           path="/profile"
-          element={isRegistered ? <ProfilePage/> : <Navigate to="/sign-in"/>}/>
+          element={isAuthenticated ? <ProfilePage/> : <Navigate to="/sign-in"/>}/>
         <Route
           path="*"
           element={<NotFoundPage/>}/>

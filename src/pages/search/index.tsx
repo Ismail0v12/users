@@ -22,7 +22,9 @@ function Search() {
     }
 
     const fullName = item.first_name + " " + item.last_name;
-    return fullName.toLowerCase().indexOf(term!.toLowerCase()) > -1;
+    if(term){
+      return fullName.toLowerCase().indexOf(term.toLowerCase()) > -1;
+    }
   });
 
   if (error) {

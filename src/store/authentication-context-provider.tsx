@@ -1,4 +1,4 @@
-import React, {createContext, useEffect, useState} from 'react';
+import React, {createContext, useState} from 'react';
 
 interface AuthenticationContextProviderProps {
   readonly children: React.ReactNode
@@ -27,20 +27,6 @@ export function AuthenticationContextProvider({children}: AuthenticationContextP
     logIn: (token: string) => void
   } = {isAuthenticated, logIn};
 
-
-  if (token) {
-    return (
-      <AuthenticationContext.Provider value={context}>
-        {children}
-      </AuthenticationContext.Provider>
-    );
-  } else {
-    return (
-      <AuthenticationContext.Provider value={context}>
-        {children}
-      </AuthenticationContext.Provider>
-    )
-  }
 
   return (
     <AuthenticationContext.Provider value={context}>
